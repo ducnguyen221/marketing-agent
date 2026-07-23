@@ -214,3 +214,26 @@ AI viết exec summary + insight theo bảng chẩn đoán 51.01 §13 (8 cặp t
 
 - **Gate 1 (hiện tại)** — duyệt spec + plan trước khi viết code.
 - **Gate 2** — trước mọi thao tác outward-facing: bật `full`, đăng thật, push repo public, commit vào kho KPIM.
+
+---
+
+## 2C. TÁI TẠO theo bản chuẩn KPIM 30_MARKETING (2026-07-23)
+
+Model 18-sheet/dim_asset tự nghĩ ở các đợt trước là SAI. Đọc trực tiếp bản chuẩn của KPIM
+Academy (`30_MARKETING/agent/AGENTS.md`, `templates/`, `output-styles/tobi-post.md`,
+`31_CAMPAIGNS/01_CAMPAIGNS/01_Tobi_Posts/*` + `scripts/PIPELINE_CONTRACT.md`) và tái tạo
+đúng y:
+
+- **Mô hình:** 1 campaign = 1 folder + 1 file `.md` (hồ sơ, từ CAMPAIGN_TEMPLATE 15 mục) +
+  1 file `.xlsx` **5 sheet**: Campaign / Post / Result / Engagement / Assets.
+- **3 cổng duyệt là CỘT trong sheet Post** (approve_topic/content/final), không phải sheet riêng.
+- **5 stage:** topics → draft → media → atlas → publish, gating y hệt PIPELINE_CONTRACT.
+- **Bê nguyên:** CAMPAIGN_TEMPLATE.md, CONTENT_TEMPLATE.md, tobi-post.md, compa-class-blog.md,
+  multichannel-style.md, EMAIL_NEWSLETTER, RECYCLING_PLAN. Viết AGENTS.md cho engine.
+- **Bộ mẫu:** dựng lại `01_Tobi_Posts` (hồ sơ + workbook 5 sheet + asset TOBI-001) — UAT vòng
+  đời đầy đủ qua 3 cổng đạt.
+
+**Xoá:** 4 workbook 18-sheet Q1–Q4 + campaigns cũ; schema/{model,enums,crosswalk}.yml;
+scripts validate_calendar/build_summary/index_assets/new_campaign/from_export/generate_kpim_bank;
+templates yml cũ; knowledge BRAND_VOICE/MULTICHANNEL_MATRIX/SCORING/DIAGNOSTICS (trùng
+output-styles hoặc tham chiếu schema chết); toàn bộ data/KPIM bank cũ.
